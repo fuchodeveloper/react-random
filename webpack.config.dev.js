@@ -11,8 +11,14 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
     filename: 'index.js'
   },
+  // devServer: {
+  //   contentBase: path.join(__dirname, './src/index.js'),
+  //   compress: true,
+  //   port: 9000
+  // },
   module: {
     rules: [
       {
