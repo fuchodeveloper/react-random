@@ -14,11 +14,6 @@ module.exports = {
     publicPath: '/',
     filename: 'index.js'
   },
-  // devServer: {
-  //   contentBase: path.join(__dirname, './src/index.js'),
-  //   compress: true,
-  //   port: 9000
-  // },
   module: {
     rules: [
       {
@@ -36,20 +31,13 @@ module.exports = {
           },
           {
             loader: "css-loader",
-            options: {
-              modules: true,
-              importLoaders: 1,
-              localIdentName: "[name]_[local]_[hash:base64]",
-              sourceMap: true,
-              minimize: true
-            }
           }
         ]
       }
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.css'],
   },
   plugins: [htmlWebpackPlugin]
 };

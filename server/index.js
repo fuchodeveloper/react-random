@@ -24,8 +24,10 @@ app.post('/save', (req, res) => {
    * save phone numbers to file storage
    */
   fs.appendFile('./phonenumbers.csv', body, (err) => {
-    if (err) throw err;
-    res.json({ message: 'Phone numbers saved!'});
+    if (err) {
+      return res.json({ message: 'Error: phone numbers not saved.' })
+    };
+    return res.json({ message: 'Phone numbers saved!'});
   });
 });
 
@@ -36,4 +38,4 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 const port = parseInt(process.env.PORT, 10) || 8080;
-app.listen(port, () => console.log('Example app listening on port 8080!'));
+app.listen(port);

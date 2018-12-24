@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import saveAction from './action/saveAction';
+import axios from 'axios';
+import alertify from 'alertify.js';
 
 class App extends Component {
-
   state = {
     randomNumberState: [],
-    selected: ''
+    selected: '',
   }
 
   handleChange = event => {
-    this.setState({ 
+    this.setState({
       selected: event.target.value
-    }, 
-    () => (this.sortNumbers(this.state)));
+    },
+      () => (this.sortNumbers(this.state)));
   }
 
   sortNumbers = state => {
@@ -29,7 +29,21 @@ class App extends Component {
   }
 
   savePhonenumbers = () => {
-    saveAction(this.state.randomNumberState);
+    this.saveAction(this.state.randomNumberState);
+  }
+
+  saveAction = phoneNumbers => {
+    return axios.post('/save', phoneNumbers)
+      .then(function (response) {
+        alertify.delay(900);
+        alertify.logPosition('top right');
+        alertify.success(response.data.message);
+      })
+      .catch(function (error) {
+        alertify.delay(900);
+        alertify.logPosition('top right');
+        alertify.error(error.data.message);
+      });
   }
 
   generatePhoneNumbers = () => {
@@ -51,38 +65,52 @@ class App extends Component {
   }
 
   render() {
-
     const { randomNumberState, selected } = this.state;
     const maxNumber = Math.max(...randomNumberState);
     const minNumber = Math.min(...randomNumberState);
 
     return (
-      <div>
-        <h1>Random phone number generator</h1>
-        <p>Generate phone numbers: <button onClick={this.generatePhoneNumbers}>Generate</button></p>
-        {/* show only when length is > 0 */}
-        {
-          randomNumberState.length > 0 &&
-          <div>
-            <p>
-              Total numbers generated: {randomNumberState.length}
-              &nbsp; | &nbsp;
-              Max number: {`0${maxNumber}`}
-              &nbsp; | &nbsp;
-              Min number: {`0${minNumber}`}
-              &nbsp; | &nbsp;
-              <button onClick={this.savePhonenumbers}>Save</button>
+      <div className="wrapper">
+        <div className="center">
+          <h1>Random phone number generator</h1>
+          <p>Generate phone numbers: </p> 
+          <button className="generate-button" onClick={this.generatePhoneNumbers}>Generate</button>
 
-              Sort:
-              <select value={selected} onChange={this.handleChange}>
-                <option value="" disabled>-- select --</option>
-                <option value="ascending">Ascending</option>
-                <option value="descending">Descending</option>
-              </select>
-            </p>
-            <div>{randomNumberState.map(number => <p key={number}>{number}</p>)}</div>
-          </div>
-        }
+          {
+            randomNumberState.length > 0 &&
+            <div className="">
+              <p>
+                Total numbers generated: {randomNumberState.length}
+              <span className="pipe">|</span>
+                Max number: {`0${maxNumber}`}
+              <span className="pipe">|</span>
+                Min number: {`0${minNumber}`}
+              <span className="pipe">|</span>
+                Sort:
+              <span className="pipe" />
+                <select value={selected} onChange={this.handleChange}>
+                  <option value="" disabled>-- select --</option>
+                  <option value="ascending">Ascending</option>
+                  <option value="descending">Descending</option>
+                </select>
+              </p>
+              <div>
+                <div className="numbers-container">
+                  <h2>Phone Numbers</h2>
+                  <div className="numbers-display">
+                    {randomNumberState.map(number => <p key={number}>{number}</p>)}
+                  </div>
+                  <button 
+                    className="save-button"
+                    onClick={this.savePhonenumbers}
+                  >Save</button>
+                </div>
+              </div>
+            </div>
+          }
+          
+        </div>
+        
       </div>
     );
   }

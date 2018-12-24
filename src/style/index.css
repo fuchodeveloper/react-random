@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+  font-family: Roboto;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.wrapper .center {
+  text-align: center;
+}
+
+.generate-button {
+  width: 5.5em;
+  height: 2em;
+  background: rgba(4, 14, 251, 0.53);
+  border-radius: 8px;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.save-button {
+  width: 3.5em;
+  height: 2em;
+  background: rgba(4, 14, 251, 0.53);
+  border-radius: 8px;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+.pipe {
+  padding: 0 5px 0 5px;
+}
+
+.numbers-display {
+  overflow-y: auto;
+}
+
+.numbers-display {
+  max-height: 400px;
+}
+
+.numbers-container h2 {
+  background: #C4C4C4;
+}
