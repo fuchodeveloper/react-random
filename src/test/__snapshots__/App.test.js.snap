@@ -17,72 +17,26 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
+      "children": <div
+        className="center"
+      >
         <h1>
           Random phone number generator
-        </h1>,
+        </h1>
         <p>
           Generate phone numbers: 
-          <button
-            onClick={[Function]}
-          >
-            Generate
-          </button>
-        </p>,
-        false,
-      ],
+        </p>
+        <button
+          className="generate-button"
+          onClick={[Function]}
+        >
+          Generate
+        </button>
+      </div>,
+      "className": "wrapper",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": "Random phone number generator",
-        },
-        "ref": null,
-        "rendered": "Random phone number generator",
-        "type": "h1",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            "Generate phone numbers: ",
-            <button
-              onClick={[Function]}
-            >
-              Generate
-            </button>,
-          ],
-        },
-        "ref": null,
-        "rendered": Array [
-          "Generate phone numbers: ",
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Generate",
-              "onClick": [Function],
-            },
-            "ref": null,
-            "rendered": "Generate",
-            "type": "button",
-          },
-        ],
-        "type": "p",
-      },
-      false,
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
@@ -93,14 +47,16 @@ ShallowWrapper {
           </h1>,
           <p>
             Generate phone numbers: 
-            <button
-              onClick={[Function]}
-            >
-              Generate
-            </button>
           </p>,
+          <button
+            className="generate-button"
+            onClick={[Function]}
+          >
+            Generate
+          </button>,
           false,
         ],
+        "className": "center",
       },
       "ref": null,
       "rendered": Array [
@@ -120,35 +76,119 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              "Generate phone numbers: ",
-              <button
-                onClick={[Function]}
-              >
-                Generate
-              </button>,
-            ],
+            "children": "Generate phone numbers: ",
           },
           "ref": null,
-          "rendered": Array [
-            "Generate phone numbers: ",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Generate",
-                "onClick": [Function],
-              },
-              "ref": null,
-              "rendered": "Generate",
-              "type": "button",
-            },
-          ],
+          "rendered": "Generate phone numbers: ",
           "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Generate",
+            "className": "generate-button",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Generate",
+          "type": "button",
         },
         false,
       ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="center"
+        >
+          <h1>
+            Random phone number generator
+          </h1>
+          <p>
+            Generate phone numbers: 
+          </p>
+          <button
+            className="generate-button"
+            onClick={[Function]}
+          >
+            Generate
+          </button>
+        </div>,
+        "className": "wrapper",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h1>
+              Random phone number generator
+            </h1>,
+            <p>
+              Generate phone numbers: 
+            </p>,
+            <button
+              className="generate-button"
+              onClick={[Function]}
+            >
+              Generate
+            </button>,
+            false,
+          ],
+          "className": "center",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Random phone number generator",
+            },
+            "ref": null,
+            "rendered": "Random phone number generator",
+            "type": "h1",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Generate phone numbers: ",
+            },
+            "ref": null,
+            "rendered": "Generate phone numbers: ",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Generate",
+              "className": "generate-button",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Generate",
+            "type": "button",
+          },
+          false,
+        ],
+        "type": "div",
+      },
       "type": "div",
     },
   ],
