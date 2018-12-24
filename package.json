@@ -6,7 +6,7 @@
   "scripts": {
     "start:client": "webpack-dev-server --config webpack.config.dev.js",
     "start:all": "NODE_ENV=development node server/index.js",
-    "test": "jest -u",
+    "test": "jest -u --coverage",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
   },
   "repository": {

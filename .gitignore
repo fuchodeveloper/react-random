@@ -1,2 +1,4 @@
 node_modules/
 phonenumbers.csv
+.coveralls.yml
+coverage
