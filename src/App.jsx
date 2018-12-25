@@ -40,9 +40,9 @@ class App extends Component {
         alertify.success(response.data.message);
       })
       .catch(function (error) {
-        alertify.delay(900);
-        alertify.logPosition('top right');
-        alertify.error(error.data.message);
+          alertify.delay(900);
+          alertify.logPosition('top right');
+          alertify.error(error.response.data.message);
       });
   }
 
@@ -78,7 +78,7 @@ class App extends Component {
 
           {
             randomNumberState.length > 0 &&
-            <div className="">
+            <div>
               <p>
                 Total numbers generated: {randomNumberState.length}
               <span className="pipe">|</span>
@@ -88,7 +88,7 @@ class App extends Component {
               <span className="pipe">|</span>
                 Sort:
               <span className="pipe" />
-                <select value={selected} onChange={this.handleChange}>
+                <select id="select" value={selected} onChange={this.handleChange}>
                   <option value="" disabled>-- select --</option>
                   <option value="ascending">Ascending</option>
                   <option value="descending">Descending</option>

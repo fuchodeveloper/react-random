@@ -25,7 +25,8 @@
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "sinon": "^7.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -33,7 +34,6 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-istanbul": "^5.1.0",
