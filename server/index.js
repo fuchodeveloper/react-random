@@ -27,7 +27,7 @@ app.post('/save', (req, res) => {
     if (err) {
       return res.json({ message: 'Error: phone numbers not saved.' })
     };
-    return res.json({ message: 'Phone numbers saved!'});
+    return res.json({ status: 201, message: 'Phone numbers saved!'});
   });
 });
 

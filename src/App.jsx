@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
-import alertify from 'alertify.js';
+import saveAction from './action/saveAction';
 
 class App extends Component {
   state = {
@@ -29,21 +28,7 @@ class App extends Component {
   }
 
   savePhonenumbers = () => {
-    this.saveAction(this.state.randomNumberState);
-  }
-
-  saveAction = phoneNumbers => {
-    return axios.post('/save', phoneNumbers)
-      .then(function (response) {
-        alertify.delay(900);
-        alertify.logPosition('top right');
-        alertify.success(response.data.message);
-      })
-      .catch(function (error) {
-          alertify.delay(900);
-          alertify.logPosition('top right');
-          alertify.error(error.response.data.message);
-      });
+    saveAction(this.state.randomNumberState);
   }
 
   generatePhoneNumbers = () => {
@@ -94,7 +79,7 @@ class App extends Component {
                   <option value="descending">Descending</option>
                 </select>
               </p>
-              <div>
+              <div className="display-header">
                 <div className="numbers-container">
                   <h2>Phone Numbers</h2>
                   <div className="numbers-display">

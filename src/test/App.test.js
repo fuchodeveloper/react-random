@@ -2,8 +2,11 @@ import React from 'react';
 import crypto from 'crypto';
 import { configure, shallow } from "enzyme";
 import Adapter from 'enzyme-adapter-react-16';
+import moxios from 'moxios'
 import sinon from 'sinon';
 import App from '../App';
+import axios from 'axios';
+import { equal } from 'assert'
 
 configure({ adapter: new Adapter() });
 
@@ -62,31 +65,44 @@ describe('<App />', () => {
     expect(wrapper.instance().state.selected).toBe(expected);
   });
 
-  // complete test
   it('should simulate clicking on save button', () => {
     const wrapper = shallow(<App />);
     wrapper.find('.generate-button').simulate('click');
 
     wrapper.find('.save-button').simulate('click');
-    // const spy = sinon.spy(App.prototype, 'saveAction');
-    // console.log(wrapper.instance())
   });
+});
 
-  // complete test
-  it('should call saveAction', async () => {
-    try {
-      const spy = sinon.spy(App.prototype.saveAction);
-    const props = {
-      saveAction: jest.fn(),
-      error: {
-        data: { message: '' }
-      }
-    }
-      await shallow(<App {...props} saveAction={spy} />).instance().saveAction(['0808']);
-      // console.log(wrapper)
-    } catch (error) {
-      console.log('error', error)
-    }
+describe('Save action', () => {
+  beforeEach(function () {
+    // import and pass your custom axios instance to this method
+    moxios.install()
+  })
 
+  afterEach(function () {
+    // import and pass your custom axios instance to this method
+    moxios.uninstall()
+  })
+
+  it('should save phone numbers', function (done) {
+    moxios.withMock(function () {
+      let onFulfilled = sinon.spy()
+      const requestdata = ["0804135987", "0801120456", "0801741388"];
+      axios.post('/save', requestdata, { proxy: { host: '127.0.0.1', port: 80 } })
+        .then(onFulfilled)
+
+      moxios.wait(function () {
+        let request = moxios.requests.mostRecent();
+        request.respondWith({
+          status: 201,
+          response: {
+            message: 'Phone numbers saved!'
+          }
+        }).then(function () {
+          equal(onFulfilled.called, true);
+          done();
+        });
+      });
+    });
   });
 });

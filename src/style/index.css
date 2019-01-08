@@ -42,6 +42,16 @@
   max-height: 400px;
 }
 
+.display-header {
+  display: flex;
+  justify-content: center;
+}
+
+.numbers-container {
+  width: 60%;
+}
+
 .numbers-container h2 {
   background: #C4C4C4;
+  border-radius: 2px;
 }
