@@ -25,7 +25,7 @@ app.post('/save', (req, res) => {
    */
   fs.appendFile('./phonenumbers.csv', body, (err) => {
     if (err) {
-      return res.json({ message: 'Error: phone numbers not saved.' })
+      return res.json({ status: 500, message: 'Error: phone numbers not saved.' })
     };
     return res.json({ status: 201, message: 'Phone numbers saved!'});
   });
